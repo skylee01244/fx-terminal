@@ -1,30 +1,39 @@
-# fx-execution-bot
+# FX Trading Terminal
 
 A Python-based trading bot that interacts with the Saxo Bank OpenAPI to fetch live FX spot prices, monitor account balances, manage positions, and place orders.   
-This project started as a way to explore automated trading and API-based execution in FX markets. Over time, I plan to expand it into a framework that supports strategy backtesting, risk management, and automated execution. 
-<br>
-I built this project to gain hands-on experience with:
-- Low-latency trading APIs and REST interactions
-- Practical aspects of trade execution and portfolio monitoring
-- Applying programming to real-world finance contexts
+The system leverages an Abstract Base Class architecture to seamlessly toggle between real-time SAXO-API data and delayed Yahoo Finance feeds. To ensure performance, asynchronous worker threads handle real-time market datawhile the main thread handles the TUI and user input. Simultaneously, a dedicated Order Monitor thread validates active orders against live price feeds, automatically triggering execution upon hitting price targets. Users can execute Market and Limit orders across various FX pairs and track their portfolio performance in real-time.
 
-Using 
-- rich library, beautiful live displays
+
+## Key Controls:
+q : Quit
+1 : Trading Terminal - Execution
+2 : Analysis - Technical Indicators.
+3 : Portfolio - Positions & PnL.
+4 : Orders - Working Orders.
+
+> [!TIP]
+> Saxo API: Saxo Bank OpenApi for live execution and real-time institutional pricing.
+> YahooFinance data: market data fetched via Yahoo Finance with 1-minute granularity
+
+### **Installation**
+```bash
+
+git clone <repository-url>
+cd fx-execution-bot
 pip install -r requirements.txt
+python main.py
+```
 
-Use rich + textual + typer as your CLI foundation for Core Terminal & CLI Experience
-Use pandas, numpy for Data Handling & Analytics
-Use aiohttp + websockets for real-time for Market Data Integration but I will add this later and use yfinance or other data to simulate the real market later. 
 
-Use plotly or rich live charts inside a textual interface for Visualization & Monitoring, make interactive charts
+# Notes
 
-Use asyncio + uvloop for Performance & Concurrency
+- Simplified execution model treats FX pairs as cash assets (1:1 leverage) rather than margin instruments to ensure strictly bounded risk profiles.
 
-cProfile to profile my code.
+- Long-Only(Buy-to-Open, Sell-to-Close), No Shorts
 
-Testing/Maintaining
+- The order monitor thread checks every order linearly O(N), could be improved with max-heap to check the largest price O(1), and a min-heap to check the lowest price O(1).
 
-pytest - For testing strategies, APIs, and data pipelines.
-loguru - Powerful and beautiful logging.
-docker - Containerize your terminal for deployment.
+- Yahoo Finance data feeds hold a 0–60 second latency due to 1-minute candle aggregation
+
+- A portion of UI part of the python code, how to get input and show output, was coded with the feedback of Google gemini
 
