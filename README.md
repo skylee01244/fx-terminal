@@ -17,7 +17,7 @@ q : Quit
 4 : Orders - Working Orders.  
  
 > [!TIP]
-> Saxo API: Saxo Bank OpenApi for live execution and real-time institutional pricing.
+> Saxo API: Saxo Bank OpenApi for live execution and real-time institutional pricing.  
 > YahooFinance data: market data fetched via Yahoo Finance with 1-minute granularity
 
 ### **Installation**
@@ -40,5 +40,5 @@ python main.py
 
 - Yahoo Finance data feeds hold a 0–60 second latency due to 1-minute candle aggregation
 
-- A portion of UI part of the python code, how to get input and show output, was coded with the feedback of Google gemini
+- A portion of UI part of the python code(textual), how to get input and show output, was coded with the feedback of Google gemini
 
