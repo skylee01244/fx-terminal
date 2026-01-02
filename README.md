@@ -1,11 +1,11 @@
 # FX Trading Terminal
 
-A Python-based trading bot that interacts with the Saxo Bank OpenAPI to fetch live FX spot prices, monitor account balances, manage positions, and 
+A Python-based trading bot that interacts with the **Saxo Bank OpenAPI** to fetch live FX spot prices, monitor account balances, manage positions, and 
 place orders. 
 
 ![Screenshot of trading terminal.](./img/screenshot1.png)
 
-The system leverages an Abstract Base Class architecture to seamlessly toggle between real-time SAXO-API data and delayed Yahoo Finance feeds. To ensure performance, asynchronous worker threads handle real-time market datawhile the main thread handles the TUI and user input. Simultaneously, a dedicated Order Monitor thread validates active orders against live price feeds, automatically triggering execution upon hitting price targets. Users can execute Market and Limit orders across various FX pairs and track their portfolio performance in real-time.
+The system leverages an Abstract Base Class architecture to seamlessly toggle between real-time **SAXO-API** data and delayed **Yahoo Finance** feeds. To ensure performance, *asynchronous worker threads* handle real-time market datawhile the main thread handles the TUI and user input. Simultaneously, a dedicated *Order Monitor thread* validates active orders against live price feeds, automatically triggering execution upon hitting price targets. Users can execute **Market** and **Limit orders** across various FX pairs and track their portfolio performance in **real-time**.
 
 
 
@@ -17,8 +17,8 @@ q : Quit
 4 : Orders - Working Orders.  
  
 > [!TIP]
-> Saxo API: Saxo Bank OpenApi for live execution and real-time institutional pricing.  
-> YahooFinance data: market data fetched via Yahoo Finance with 1-minute granularity
+> **Saxo API**: Saxo Bank OpenApi for live execution and real-time institutional pricing.  
+> **YahooFinance data**: market data fetched via Yahoo Finance with 1-minute granularity
 
 ### **Installation**
 ```bash
