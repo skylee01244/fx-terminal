@@ -23,7 +23,7 @@ q : Quit
 ### **Installation**
 ```bash
 
-git clone <repository-url>
+git clone https://github.com/skylee01244/fx-terminal.git
 cd fx-terminal
 pip install -r requirements.txt
 python main.py
