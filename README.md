@@ -24,7 +24,7 @@ q : Quit
 ```bash
 
 git clone <repository-url>
-cd fx-execution-bot
+cd fx-terminal
 pip install -r requirements.txt
 python main.py
 ```
